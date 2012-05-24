@@ -100,6 +100,10 @@ int __clone2(int (*fn)(void *), void *child_stack_base,
 
 #include "qemu.h"
 
+#if defined(CONFIG_SYSCALL_FORWARD_COMPAT)
+#include "syscall_forward_compat.h"
+#endif
+
 #if defined(CONFIG_USE_NPTL)
 #define CLONE_NPTL_FLAGS2 (CLONE_SETTLS | \
     CLONE_PARENT_SETTID | CLONE_CHILD_SETTID | CLONE_CHILD_CLEARTID)
